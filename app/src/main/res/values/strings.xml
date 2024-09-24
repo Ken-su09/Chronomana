@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">Chronomana</string>
+
+    <string name="select_players_number">Select the number of players :</string>
+    <string name="player_scores">%d wins %d defeats</string>
+    <string name="validate">Validate</string>
+    <string name="enter_your_name">Enter your name</string>
 </resources>
