@@ -1,5 +1,6 @@
 package com.suonk.chronomana.model.data.repositories.number_players
 
+import android.util.Log
 import kotlinx.coroutines.channels.BufferOverflow
 import kotlinx.coroutines.channels.Channel
 import kotlinx.coroutines.flow.Flow
@@ -22,6 +23,8 @@ class NumberPlayersRepositoryImpl @Inject constructor() : NumberPlayersRepositor
     override fun getNumberPlayersChannel() = numberPlayersChannel
 
     override fun setNumberPlayersFlowAndChannel(numberPlayers: Int) {
+        Log.i("NumberPlayersClick", "Passe par là NumberPlayersRepositoryImpl")
+
         numberPlayersFlow.value = numberPlayers
         numberPlayersChannel.trySend(numberPlayers)
     }

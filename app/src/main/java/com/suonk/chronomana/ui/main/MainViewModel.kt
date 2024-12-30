@@ -10,9 +10,8 @@ import javax.inject.Inject
 
 @HiltViewModel
 class MainViewModel @Inject constructor(
-    private val getNumberPlayersChannelAsFlowUseCase: GetNumberPlayersChannelAsFlowUseCase
+    private val getNumberPlayersChannelAsFlowUseCase: GetNumberPlayersChannelAsFlowUseCase,
 ) : ViewModel() {
-
 
     val mainViewAction: LiveData<Event<MainViewAction>> = liveData {
         getNumberPlayersChannelAsFlowUseCase.invoke().collect { numberPlayers ->

@@ -1,5 +1,6 @@
 package com.suonk.chronomana.ui.selection
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.View
@@ -7,7 +8,7 @@ import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.GridLayoutManager
 import com.suonk.chronomana.R
 import com.suonk.chronomana.databinding.FragmentPlayersSelectionBinding
-import com.suonk.chronomana.ui.player.details_upsert.PlayerDetailsFragment
+import com.suonk.chronomana.ui.main.MainActivity
 import com.suonk.chronomana.ui.selection.all_players.AllPlayersAvailableListAdapter
 import com.suonk.chronomana.ui.selection.players_selection.PlayersSelectionListAdapter
 import com.suonk.chronomana.utils.BaseFragment
@@ -26,12 +27,16 @@ class PlayersSelectionFragment : BaseFragment(R.layout.fragment_players_selectio
         displayPlayersSelection()
         displayAllPlayersList()
 
-        binding.addNewPlayer.setOnClickListener {
-            if (requireActivity() is PlayersSelectionActivity) {
-                requireActivity().supportFragmentManager.beginTransaction()
-                    .replace(R.id.fragment_container_selection, PlayerDetailsFragment(), "PlayerDetailsFragment")
-                    .addToBackStack(null)
-                    .commit()
+        binding.topAppBar.setOnMenuItemClickListener { menuItem ->
+            when (menuItem.itemId) {
+                R.id.validate -> {
+
+                    true
+                }
+
+                else -> {
+                    true
+                }
             }
         }
     }

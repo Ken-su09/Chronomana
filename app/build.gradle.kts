@@ -5,7 +5,6 @@ plugins {
     id("com.google.devtools.ksp")
     id("com.google.dagger.hilt.android")
     id("kotlin-kapt")
-    id("com.google.gms.google-services")
 }
 
 android {
@@ -14,7 +13,7 @@ android {
 
     defaultConfig {
         applicationId = "com.suonk.chronomana"
-        minSdk = 24
+        minSdk = 25
         targetSdk = 34
         versionCode = 1
         versionName = "1.0"
@@ -69,7 +68,7 @@ dependencies {
     annotationProcessor("androidx.room:room-compiler:$room_version")
 
     // VIEW MODEL
-    val lifecycle_version = "2.8.6"
+    val lifecycle_version = "2.8.7"
     implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycle_version")
     implementation("androidx.lifecycle:lifecycle-livedata-ktx:$lifecycle_version")
     implementation("androidx.lifecycle:lifecycle-runtime-ktx:$lifecycle_version")
@@ -86,15 +85,6 @@ dependencies {
     // For local unit tests
     testImplementation("com.google.dagger:hilt-android-testing:2.51.1")
     kaptTest("com.google.dagger:hilt-compiler:2.51.1")
-
-    // Firebase
-    // Firebase BOM
-    implementation(platform("com.google.firebase:firebase-bom:33.3.0"))
-
-    implementation("com.google.firebase:firebase-auth-ktx")
-    implementation("com.google.firebase:firebase-firestore-ktx")
-    implementation("com.google.firebase:firebase-database-ktx")
-    implementation("com.google.firebase:firebase-analytics-ktx")
 
     // Glide
     implementation("com.github.bumptech.glide:glide:4.15.1")

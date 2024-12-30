@@ -9,17 +9,18 @@
 
     <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:background="@color/transparent">
 
         <com.google.android.material.appbar.MaterialToolbar
             android:id="@+id/topAppBar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:minHeight="?attr/actionBarSize"
-            android:background="@color/transparent"
             android:backgroundTint="@color/transparent"
+            android:minHeight="?attr/actionBarSize"
             app:menu="@menu/top_app_bar"
-            app:title="METTEZ LUI UN CHRONO !" />
+            app:title="METTEZ LUI UN CHRONO !"
+            app:titleTextColor="@color/white" />
 
     </com.google.android.material.appbar.AppBarLayout>
 

@@ -2,8 +2,8 @@ package com.suonk.chronomana.ui.number_players
 
 import android.os.Bundle
 import android.view.View
+import android.widget.Toast
 import androidx.fragment.app.viewModels
-import androidx.recyclerview.widget.GridLayoutManager
 import com.suonk.chronomana.R
 import com.suonk.chronomana.databinding.FragmentNumberPlayersBinding
 import com.suonk.chronomana.utils.BaseFragment
@@ -20,12 +20,14 @@ class NumberPlayersFragment : BaseFragment(R.layout.fragment_number_players) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val adapter = NumberPlayersListAdapter()
-        binding.numberPlayersList.adapter = adapter
+        binding.numberPlayersValue.showSoftInputOnFocus = false
 
-        safeCollectFlow(flow = viewModel._listOfPlayersStateFlow) { players ->
-            binding.numberPlayersList.setLayoutManager(GridLayoutManager(requireContext(), 3))
-            adapter.submitList(players)
+        viewModel.toastMessageSingleLiveEvent.observe(viewLifecycleOwner) {
+            Toast.makeText(requireContext(), it, Toast.LENGTH_LONG).show()
+        }
+
+        binding.confirmedButton.setOnClickListener {
+            viewModel.setNumberPlayers(binding.numberPlayersValue.text?.toString())
         }
     }
 }
